@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Visual Instruction Tuning">
+    <meta name="description" content="Valley">
     <meta name="keywords" content="multimodal chatbot">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Valley</title>
@@ -267,9 +267,9 @@
     paper_data = {
         title: "VALLEY: VIDEO ASSISTANT WITH LARGE LANGUAGE MODEL ENHANCED ABILITY",
         urls: {
-            arxiv: "https://www.google.com.hk/",
-            code: "https://www.google.com.hk/",
-            demo: "https://www.google.com.hk/"
+            arxiv: "https://arxiv.org/pdf/2306.07207.pdf",
+            code: "https://github.com/RupertLuo/Valley",
+            demo: "https://huggingface.co/luoruipu1/valley-13b-v1-delta"
 
         },
         abstract: {
@@ -283,7 +283,7 @@
                 'We collect a large multi-modal instruction-following dataset, which focuses on video understanding and comprises diverse types of tasks, including multi-short captions, temporal descriptions with timestamps, and complex statements with long videos. We also leverage ChatGPT to generate conversations between humans and video content, which further enhances the quality and diversity of the dataset.',
                 'We will open-source all our resources, including the pre-training dataset and the generated multi-modal instruction data collected from various video tasks. In addition, prompts on how to instruct ChatGPT to design and generate the conversations based on the original content of video data will also be made public. Finally, all model weights and chat demos will be released. This will enable researchers to reproduce our experiments and facilitate further advancements in the field of multi-modal video understanding.'
             ],
-            architecture_image_url: cdn + '/images/valley_architecture2.png',
+            architecture_image_url: cdn + '/images/valley_architecture.png',
             architecture_image_caption: 'Figure 1: Valley architecture.'
         },
         related_work: {
@@ -291,8 +291,6 @@
         },
         approach: {
             content: "In order to allow pre-trained LLM to understand videos and adapt videos of different lengths together with individual images, we add a spatio-temporal pooling module to the vision encoder to aggregate each frame’s grid features as unified vision tokens, while keeping the rest structures the same with LLaVA (Liu et al., 2023) using a simple yet effective projection layer to connect the vision tokens to LLM. We choose Stable-Vicuna as the language interface since it exhibits superior multilingual chat abilities. The overall architecture is shown in Figure 1.",
-            approach_image_url: cdn + "/images/context.jpg",
-            approach_image_caption: "Figure 4: Capture the main content of the video, do the causal inference, and identify objects and relationships in the video. Chinese prompts are also well understood."
         },
         experiments: {
             content: "In our experiments, we employ the Stable-Vicuna (Chiang et al., 2023) as the LLM backbone and the pre-trained ViT-L/14 from CLIP to encode videos and images. We first pre-train Valley for one epoch with a learning rate of 2e-3 and then fine-tune the model for three epochs with a learning rate of 2e-5 on the instruction dataset. All the experiments are conducted on 8×A100 80G GPUs."
@@ -310,10 +308,10 @@
             ]
         },
         bibtex: {
-            content: "@article{liu2023llava, author = {Liu, Haotian and Li, Chunyuan and Wu, Qingyang and Lee, Yong Jae}, title = {Visual Instruction Tuning}, publisher = {arXiv:2304.08485}, year = {2023} }"
+            content: "@misc{luo2023valley, title={Valley: Video Assistant with Large Language model Enhanced abilitY}, author={Ruipu Luo and Ziwang Zhao and Min Yang and Junwei Dong and Minghui Qiu and Pengcheng Lu and Tao Wang and Zhongyu Wei}, year={2023}, eprint={2306.07207}, archivePrefix={arXiv}, primaryClass={cs.CV} }"
         },
         acknowledgement: {
-            content: ''
+            content: 'We thank LLaVA for providing the instruction data and LLaMA for giving us access to their models, and open-source projects, including Alpaca and Vicuna.'
         }
 
     }
