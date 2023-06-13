@@ -23,7 +23,7 @@
 <body>
     <div id="valley">
         <el-container>
-            <el-header height="220px">
+            <el-main class="main-content">
                 <h1 class="publication-title">{{title}}</h1>
                 <div style="margin-top: 20px;">
                     <span>Ruipu Luo<sup>1,2*</sup></span>,
@@ -66,13 +66,16 @@
                     </el-tag>
                     <!-- <el-tag class="tag"><i class="ai ai-arxiv ai-1x"></i>&nbsp;arXiv</el-tag> -->
                 </div>
-            </el-header>
-            <el-main direction="vertical">
+            </el-main>
+        </el-container>
+        <el-container>
+            <el-header height="0px"></el-header>
+            <el-main direction="horizontal" style="display: block;">
 
                 <h2>ABSTRACT</h2>
                 <p class="has-text-justified" v-html="abstract.content"></p>
             </el-main>
-            <el-main direction="vertical" class="main-content">
+            <el-main direction="horizontal" class="main-content">
                 <div>
                     <h2>Introduction</h2>
                     <p class="has-text-justified" v-html="introduction.content"></p>
@@ -124,6 +127,7 @@
                     <h2>Acknowledgement</h2>
                 </div>
             </el-main>
+
         </el-container>
     </div>
 
@@ -146,6 +150,11 @@
         font-family: 'Noto Sans', sans-serif;
         line-height: 1.5;
 
+    }
+
+    .el-header {
+        display: block;
+        margin-bottom: 20px;
     }
 
     .el-header,
